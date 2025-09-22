@@ -73,10 +73,10 @@ try:
 
 
             if 4 <= dominant_freq <= 8:
-                command = "go"
+                command = "stop"
                 print(f"🛑 STOP | Dominant freq: {dominant_freq:.2f} Hz")
             else:
-                command = "stop"
+                command = "go"
                 print(f"✅ GO | Dominant freq: {dominant_freq:.2f} Hz")
 
             with open("motor_command.txt", "w") as f:
