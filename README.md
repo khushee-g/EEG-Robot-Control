@@ -24,7 +24,25 @@ By filtering EEG data in the **4–8 Hz (theta) band**, the system distinguishes
    - `mbot-motor-control.py` reads the command file  
    - Sends the appropriate motor commands to the robot (mBot) via serial  
 
+
+
+## Requirements
+
+- Python 3.x  
+- NumPy, SciPy  
+- Arduino Uno + EXG Pill  
+- mBot (MakerBlock)  
+- EEG electrodes (3 gel stick-on)  
+
 ---
 
-## Repository Structure
+## Getting Started
+
+1. Run `serial-read-theta.py` to begin capturing EEG and writing commands.  
+2. In a separate terminal, run `mbot-motor-control.py` to control robot motors.  
+3. Close your eyes → robot **stops**.  
+4. Stay alert (eyes open) → robot **moves**.  
+
+---
+
 
