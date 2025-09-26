@@ -4,11 +4,9 @@ theme:
   features:
     - navigation.tabs
     - navigation.sections
-    - navigation.top
+    - navigation.expand
     - search.highlight
     - content.code.copy
-    - navigation.sections
-    - navigation.expand
 
 nav:
   - Home: index.md
