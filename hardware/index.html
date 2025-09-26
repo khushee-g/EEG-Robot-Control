@@ -18,7 +18,7 @@
     
     
       
-        <title>Getting Started - My Project</title>
+        <title>Hardware Setup - EEG Robot Control</title>
       
     
     
@@ -60,7 +60,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#getting-started" class="md-skip">
+        <a href="#hardware-setup" class="md-skip">
           Skip to content
         </a>
       
@@ -74,7 +74,7 @@
 
 <header class="md-header" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href=".." title="My Project" class="md-header__button md-logo" aria-label="My Project" data-md-component="logo">
+    <a href=".." title="EEG Robot Control" class="md-header__button md-logo" aria-label="EEG Robot Control" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
@@ -88,13 +88,13 @@
       <div class="md-header__ellipsis">
         <div class="md-header__topic">
           <span class="md-ellipsis">
-            My Project
+            EEG Robot Control
           </span>
         </div>
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Getting Started
+              Hardware Setup
             
           </span>
         </div>
@@ -184,11 +184,9 @@
   
   
   
-    
   
-  
-    <li class="md-tabs__item md-tabs__item--active">
-      <a href="./" class="md-tabs__link">
+    <li class="md-tabs__item">
+      <a href="../getting-started.md" class="md-tabs__link">
         
   
   
@@ -205,9 +203,11 @@
   
   
   
+    
   
-    <li class="md-tabs__item">
-      <a href="../hardware.md" class="md-tabs__link">
+  
+    <li class="md-tabs__item md-tabs__item--active">
+      <a href="./" class="md-tabs__link">
         
   
   
@@ -300,13 +300,13 @@
 
 <nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href=".." title="My Project" class="md-nav__button md-logo" aria-label="My Project" data-md-component="logo">
+    <a href=".." title="EEG Robot Control" class="md-nav__button md-logo" aria-label="EEG Robot Control" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
 
     </a>
-    My Project
+    EEG Robot Control
   </label>
   
   <ul class="md-nav__list" data-md-scrollfix>
@@ -337,6 +337,28 @@
       
   
   
+  
+  
+    <li class="md-nav__item">
+      <a href="../getting-started.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Getting Started
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
     
   
   
@@ -354,35 +376,13 @@
   
   
   <span class="md-ellipsis">
-    Getting Started
-    
-  </span>
-  
-
-      </a>
-      
-    </li>
-  
-
-    
-      
-      
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../hardware.md" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
     Hardware Setup
     
   </span>
   
 
       </a>
+      
     </li>
   
 
@@ -561,9 +561,16 @@
 
 
 
-<h1 id="getting-started">Getting Started</h1>
-<p>Welcome to the project!</p>
-<p>This guide will help you set up your environment and run your first demo.</p>
+<h1 id="hardware-setup">Hardware Setup</h1>
+<p>Materials: 
+- Gel Electrodes(3 per use)
+- 3 Snap-fit Wires
+- BioAmp EXG Pill by Upside Down Labs
+- 3 Male-Female Jumper Wires
+- Arduino Uno
+- 2 USB Type-B Cables</p>
+<p>To set up the EEG system, start by connecting the electrode to the snap fit cables, and connect the free ends to the Bioamp EXG pill. I used red, black, and yellow cables to represent IN+, IN-, and REF respectively. Next, connect the BioAmp EXG Pill to the Arduino Uno board using the male-female jumper wires. Connect the yellow wire from the output pin to the A0 Analog Input port on the Arduino; connect the black wire from the ground pin to the ground port on the Arduino; and connect the red wire from the VCC(power) pin to the 5V port. See Diagram 2 for the complete connection setup. </p>
+<p>Now connect the USB cable from the arduino board to your computer, so that the EEG signal can be processed. Connect the second USB cable from your computer to the M-Bot, in order to send the robot real-time motor commands based on the EEG input. Alternatively, you can connect to the M-Bot via bluetooth.</p>
 
 
 
