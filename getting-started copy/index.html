@@ -410,8 +410,54 @@
 
 
 <h1 id="getting-started">Getting Started</h1>
-<p>Welcome to the project!</p>
-<p>This guide will help you set up your environment and run your first demo.</p>
+<h1 id="eeg-robot-control">EEG-Robot-Control</h1>
+<p><strong>EEG-Robot Control</strong> is a project that uses real-time EEG signals to control a robot based on the user's state of alertness.</p>
+<hr />
+<h2 id="how-it-works">How It Works</h2>
+<h3 id="user-states">User States</h3>
+<ul>
+<li><strong>Alert (eyes open)</strong> → Robot moves forward  </li>
+<li><strong>Rest (eyes closed / theta detected)</strong> → Robot stops  </li>
+</ul>
+<p>By filtering EEG data in the <strong>4–8 Hz (theta) band</strong>, the system distinguishes between alert and resting states and translates them into motor commands for the robot.</p>
+<hr />
+<h3 id="eeg-signal-acquisition">EEG Signal Acquisition</h3>
+<ul>
+<li>3 gel electrodes (stick-on)  </li>
+<li>EXG Pill amplifier  </li>
+<li>Arduino Uno for data capture  </li>
+</ul>
+<hr />
+<h3 id="signal-processing">Signal Processing</h3>
+<ul>
+<li><code>serial-read-theta.py</code> filters EEG for 4–8 Hz activity  </li>
+<li>If <strong>theta detected</strong>, writes <code>stop</code> to a motor command file  </li>
+<li>Else, writes <code>go</code>  </li>
+</ul>
+<hr />
+<h3 id="robot-control">Robot Control</h3>
+<ul>
+<li><code>mbot-motor-control.py</code> reads the command file  </li>
+<li>Sends the appropriate motor commands to the robot (<strong>mBot</strong>) via serial  </li>
+</ul>
+<hr />
+<h2 id="requirements">Requirements</h2>
+<ul>
+<li>Python 3.x  </li>
+<li>NumPy, SciPy  </li>
+<li>Arduino Uno + EXG Pill  </li>
+<li>mBot (MakerBlock)  </li>
+<li>EEG electrodes (3 gel stick-on)  </li>
+</ul>
+<hr />
+<h2 id="getting-started_1">Getting Started</h2>
+<ol>
+<li>Run <code>serial-read-theta.py</code> to begin capturing EEG and writing commands.  </li>
+<li>In a separate terminal, run <code>mbot-motor-control.py</code> to control robot motors.  </li>
+<li><strong>Close your eyes</strong> → robot stops  </li>
+<li><strong>Stay alert (eyes open)</strong> → robot moves  </li>
+</ol>
+<hr />
 
 
 
