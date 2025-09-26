@@ -311,6 +311,30 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#mbot-motor-controlpy-robot-control" class="md-nav__link">
+    <span class="md-ellipsis">
+      mbot-motor-control.py – Robot Control
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="mbot-motor-control.py – Robot Control">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#full-code_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Full Code
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -563,6 +587,75 @@ finally:
         ser.close()
     print("Serial port and file closed.")
 </code></pre>
+<hr />
+<h2 id="mbot-motor-controlpy-robot-control"><code>mbot-motor-control.py</code> – Robot Control</h2>
+<p>This program reads the motor_command.txt file and sends corresponding motor commands to the mBot via serial.
+⚠️ Important: Update serial_port to match your mBot’s connection.</p>
+<h3 id="full-code_1">Full Code</h3>
+<p>import serial
+import time</p>
+<h1 id="serial-port-to-connect-to-mbot-update-this">Serial port to connect to mBot (update this!)</h1>
+<p>serial_port = "/dev/tty.usbserial-142220"
+baudrate = 115200</p>
+<p>try:
+    mbot = serial.Serial(serial_port, baudrate, timeout=1)
+    print(f"Connected to mBot on {serial_port}")
+except Exception as e:
+    print(f"Error opening serial port: {e}")
+    exit(1)</p>
+<p>def run_motor(port, speed):
+    """
+    port: 0x09 = left motor, 0x0A = right motor
+    speed: -255 to 255
+    """
+    speed_bytes = speed.to_bytes(2, byteorder='little', signed=True)</p>
+<pre><code>packet = bytearray([
+    0xFF, 0x55,    
+    0x07,          
+    0x00,          
+    0x02,          
+    0x0A,          
+    port,          
+    speed_bytes[0],
+    speed_bytes[1]
+])
+
+checksum = sum(packet[2:]) % 256
+packet.append(checksum)
+
+mbot.write(packet)
+
+print(f"Sent to port {hex(port)}: {list(packet)} (speed {speed})")
+</code></pre>
+<p>def move_forward():
+    run_motor(0x09, -100)<br />
+    run_motor(0x0A, 100)  </p>
+<p>def stop_motors():
+    run_motor(0x09, 0)<br />
+    run_motor(0x0A, 0)  </p>
+<p>last_command = None</p>
+<p>try:
+    while True:
+        try:
+            with open("motor_command.txt", "r") as f:
+                command = f.read().strip().lower()
+        except FileNotFoundError:
+            command = None</p>
+<pre><code>    if command in ["go", "stop"]:
+        if command == "go":
+            move_forward()
+            print("✅ GO → Moving forward")
+        elif command == "stop":
+            stop_motors()
+            print("🛑 STOP → Motors stopped")
+        last_command = command
+
+    time.sleep(0.1)
+</code></pre>
+<p>except KeyboardInterrupt:
+    print("\nProgram interrupted! Stopping motors...")
+    stop_motors()
+    mbot.close()</p>
 
 
 
