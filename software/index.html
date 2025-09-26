@@ -9,18 +9,20 @@
       
       
       
+        <link rel="prev" href="../hardware/">
       
       
-      <link rel="icon" href="/assets/images/favicon.png">
+      
+      <link rel="icon" href="../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.20">
     
     
       
-        <title>EEG Robot Control</title>
+        <title>Software Setup - EEG Robot Control</title>
       
     
     
-      <link rel="stylesheet" href="/assets/stylesheets/main.e53b48f4.min.css">
+      <link rel="stylesheet" href="../assets/stylesheets/main.e53b48f4.min.css">
       
       
 
@@ -39,7 +41,7 @@
       
     
     
-    <script>__md_scope=new URL("/",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -57,6 +59,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#software-setup" class="md-skip">
+          Skip to content
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -69,7 +76,7 @@
 
 <header class="md-header md-header--shadow" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="/." title="EEG Robot Control" class="md-header__button md-logo" aria-label="EEG Robot Control" data-md-component="logo">
+    <a href=".." title="EEG Robot Control" class="md-header__button md-logo" aria-label="EEG Robot Control" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
@@ -89,7 +96,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              
+              Software Setup
             
           </span>
         </div>
@@ -169,7 +176,7 @@
 
 <nav class="md-nav md-nav--primary md-nav--integrated" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="/." title="EEG Robot Control" class="md-nav__button md-logo" aria-label="EEG Robot Control" data-md-component="logo">
+    <a href=".." title="EEG Robot Control" class="md-nav__button md-logo" aria-label="EEG Robot Control" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
@@ -187,7 +194,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/." class="md-nav__link">
+      <a href=".." class="md-nav__link">
         
   
   
@@ -209,7 +216,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/hardware/" class="md-nav__link">
+      <a href="../hardware/" class="md-nav__link">
         
   
   
@@ -228,10 +235,32 @@
       
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="/software/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    Software Setup
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -242,6 +271,59 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#quick-links" class="md-nav__link">
+    <span class="md-ellipsis">
+      Quick Links
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1-serial-read-thetapy-eeg-signal-processing" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. serial-read-theta.py – EEG Signal Processing
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. serial-read-theta.py – EEG Signal Processing">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#full-code" class="md-nav__link">
+    <span class="md-ellipsis">
+      Full Code
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -298,7 +380,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/eeg.md" class="md-nav__link">
+      <a href="../eeg.md" class="md-nav__link">
         
   
   
@@ -321,7 +403,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/mbot.md" class="md-nav__link">
+      <a href="../mbot.md" class="md-nav__link">
         
   
   
@@ -351,7 +433,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/contributing.md" class="md-nav__link">
+      <a href="../contributing.md" class="md-nav__link">
         
   
   
@@ -378,8 +460,128 @@
             <div class="md-content" data-md-component="content">
               <article class="md-content__inner md-typeset">
                 
-  <h1>404 - Not found</h1>
+                  
 
+
+
+<h1 id="software-setup">Software Setup</h1>
+<p>This page describes the software components used in <strong>EEG-Robot-Control</strong>, highlighting the two main Python programs that drive the system.</p>
+<hr />
+<h2 id="quick-links">Quick Links</h2>
+<ul>
+<li><a href="../hardware/">Hardware Setup</a> – Full list of materials and connection diagrams  </li>
+<li><a href="#workflow-overview">Getting Started</a> – How to run the system step by step  </li>
+</ul>
+<hr />
+<h2 id="1-serial-read-thetapy-eeg-signal-processing">1. <code>serial-read-theta.py</code> – EEG Signal Processing</h2>
+<p>This program reads real-time EEG data from the Arduino/EXG setup, filters for theta band activity (4–8 Hz), and writes motor commands (<code>go</code> / <code>stop</code>) to a file for the robot to read.</p>
+<p><strong>⚠️ Important:</strong> Change the <code>serial_port</code> variable to match your <strong>Arduino’s port</strong> on your computer.</p>
+<h3 id="full-code">Full Code</h3>
+<p>```python
+import serial
+import time
+import numpy as np
+import csv
+from scipy.signal import butter, lfilter
+from scipy.fft import fft, fftfreq
+from collections import deque
+from datetime import datetime</p>
+<h1 id="sampling-settings">Sampling settings</h1>
+<p>sampling_rate = 256 <br />
+sampling_interval = 1.0 / sampling_rate
+window_size = 256   <br />
+lowcut = 4.0        <br />
+highcut = 8.0         </p>
+<h1 id="serial-port-update-to-your-arduinos-port">Serial port (update to your Arduino's port)</h1>
+<p>serial_port = "/dev/cu.usbmodem1422401"
+baudrate = 115200
+timeout = 1 </p>
+<h1 id="csv-file-to-log-data">CSV file to log data</h1>
+<p>csv_file = open("eeg_buzz_log.csv", "w", newline="")
+csv_writer = csv.writer(csv_file)
+csv_writer.writerow(["Timestamp", "EEG Value", "Dominant Frequency", "Command"])</p>
+<p>def butter_bandpass(lowcut, highcut, fs, order=4):
+    nyq = 0.5 * fs
+    low = lowcut / nyq
+    high = highcut / nyq
+    return butter(order, [low, high], btype='band')</p>
+<p>def apply_filter(data, lowcut, highcut, fs):
+    b, a = butter_bandpass(lowcut, highcut, fs)
+    return lfilter(b, a, data)</p>
+<p>try:
+    ser = serial.Serial(serial_port, baudrate, timeout=timeout)
+    print(f"Connected to serial port: {serial_port}")
+except Exception as e:
+    print(f"Could not open serial port: {e}")
+    exit(1)</p>
+<p>data_buffer = deque(maxlen=window_size)</p>
+<h1 id="clear-motor-command-file">Clear motor command file</h1>
+<p>with open("motor_command.txt", "w") as f:
+    f.write("")</p>
+<p>try:
+    while True:
+        start_time = time.time()</p>
+<pre><code>    line = ser.readline().decode("utf-8", errors="replace").strip()
+    if not line:
+        continue
+
+    try:
+        parts = line.split(',')
+        eeg_value = float(parts[0])
+    except (ValueError, IndexError):
+        continue
+
+    data_buffer.append(eeg_value)
+
+    if len(data_buffer) == window_size:
+        raw_data = np.array(data_buffer)
+        filtered = apply_filter(raw_data, lowcut, highcut, sampling_rate)
+
+        yf = np.abs(fft(filtered))
+        freqs = fftfreq(window_size, d=sampling_interval)
+
+        yf = yf[:window_size // 2]
+        freqs = freqs[:window_size // 2]
+
+        dominant_freq = freqs[np.argmax(yf)]
+
+        if 4 &lt;= dominant_freq &lt;= 8:
+            command = "stop"
+            print(f"🛑 STOP | Dominant freq: {dominant_freq:.2f} Hz")
+        else:
+            command = "go"
+            print(f"✅ GO | Dominant freq: {dominant_freq:.2f} Hz")
+
+        with open("motor_command.txt", "w") as f:
+            f.write(command)
+
+        timestamp = datetime.now().isoformat()
+        csv_writer.writerow([timestamp, eeg_value, f"{dominant_freq:.2f}", command])
+        csv_file.flush()
+
+    elapsed = time.time() - start_time
+    time.sleep(max(0, sampling_interval - elapsed))
+</code></pre>
+<p>except KeyboardInterrupt:
+    print("Program stopped by user.")</p>
+<p>finally:
+    csv_file.close()
+    if ser.is_open:
+        ser.close()
+    print("Serial port and file closed.")</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
               </article>
             </div>
           
@@ -415,10 +617,10 @@
     
     
       
-      <script id="__config" type="application/json">{"base": "/", "features": ["navigation.instant", "navigation.sections", "navigation.expand", "toc.integrate"], "search": "/assets/javascripts/workers/search.973d3a69.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+      <script id="__config" type="application/json">{"base": "..", "features": ["navigation.instant", "navigation.sections", "navigation.expand", "toc.integrate"], "search": "../assets/javascripts/workers/search.973d3a69.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
     
     
-      <script src="/assets/javascripts/bundle.f55a23d4.min.js"></script>
+      <script src="../assets/javascripts/bundle.f55a23d4.min.js"></script>
       
     
   </body>
