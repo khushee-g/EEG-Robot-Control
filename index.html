@@ -60,7 +60,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#eeg-robot-control" class="md-skip">
+        <a href="#hello-welcome-to-the-eeg-robot-control-webpage-here-ill-cover-how-to-control-a-m-bot-with-eegelectroencephalography-signals-from-start-to-finish-if-you-would-like-to-follow-along-check-out-the-step-but-step-youtube-tutorial-or-my-github-repository" class="md-skip">
           Skip to content
         </a>
       
@@ -244,69 +244,18 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#how-it-works" class="md-nav__link">
+  <a href="#inception" class="md-nav__link">
     <span class="md-ellipsis">
-      How It Works
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="How It Works">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#user-states" class="md-nav__link">
-    <span class="md-ellipsis">
-      User States
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#eeg-signal-acquisition" class="md-nav__link">
-    <span class="md-ellipsis">
-      EEG Signal Acquisition
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#signal-processing" class="md-nav__link">
-    <span class="md-ellipsis">
-      Signal Processing
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#robot-control" class="md-nav__link">
-    <span class="md-ellipsis">
-      Robot Control
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#requirements" class="md-nav__link">
-    <span class="md-ellipsis">
-      Requirements
+      Inception
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#getting-started" class="md-nav__link">
+  <a href="#mission-statement" class="md-nav__link">
     <span class="md-ellipsis">
-      Getting Started
+      Mission Statement:
     </span>
   </a>
   
@@ -500,54 +449,15 @@
 
 
 
-<h1 id="eeg-robot-control">EEG-Robot-Control</h1>
-<p><strong>EEG-Robot Control</strong> is a project that uses real-time EEG signals to control a robot based on the user's state of alertness.</p>
-<hr />
-<h2 id="how-it-works">How It Works</h2>
-<h3 id="user-states">User States</h3>
-<ul>
-<li><strong>Alert (eyes open)</strong> → Robot moves forward  </li>
-<li><strong>Rest (eyes closed / theta detected)</strong> → Robot stops  </li>
-</ul>
-<p>By filtering EEG data in the <strong>4–8 Hz (theta) band</strong>, the system distinguishes between alert and resting states and translates them into motor commands for the robot.</p>
-<hr />
-<h3 id="eeg-signal-acquisition">EEG Signal Acquisition</h3>
-<ul>
-<li>3 gel electrodes (stick-on)  </li>
-<li>EXG Pill amplifier  </li>
-<li>Arduino Uno for data capture  </li>
-</ul>
-<hr />
-<h3 id="signal-processing">Signal Processing</h3>
-<ul>
-<li><code>serial-read-theta.py</code> filters EEG for 4–8 Hz activity  </li>
-<li>If <strong>theta detected</strong>, writes <code>stop</code> to a motor command file  </li>
-<li>Else, writes <code>go</code>  </li>
-</ul>
-<hr />
-<h3 id="robot-control">Robot Control</h3>
-<ul>
-<li><code>mbot-motor-control.py</code> reads the command file  </li>
-<li>Sends the appropriate motor commands to the robot (<strong>mBot</strong>) via serial  </li>
-</ul>
-<hr />
-<h2 id="requirements">Requirements</h2>
-<ul>
-<li>Python 3.x  </li>
-<li>NumPy, SciPy  </li>
-<li>Arduino Uno + EXG Pill  </li>
-<li>mBot (MakerBlock)  </li>
-<li>EEG electrodes (3 gel stick-on)  </li>
-</ul>
-<hr />
-<h2 id="getting-started">Getting Started</h2>
-<ol>
-<li>Run <code>serial-read-theta.py</code> to begin capturing EEG and writing commands.  </li>
-<li>In a separate terminal, run <code>mbot-motor-control.py</code> to control robot motors.  </li>
-<li><strong>Close your eyes</strong> → robot stops  </li>
-<li><strong>Stay alert (eyes open)</strong> → robot moves  </li>
-</ol>
-<hr />
+<h1 id="hello-welcome-to-the-eeg-robot-control-webpage-here-ill-cover-how-to-control-a-m-bot-with-eegelectroencephalography-signals-from-start-to-finish-if-you-would-like-to-follow-along-check-out-the-step-but-step-youtube-tutorial-or-my-github-repository">Hello! Welcome to the EEG Robot Control webpage. Here, I’ll cover how to control a M-Bot with EEG(electroencephalography) signals from start to finish. If you would like to follow along, check out the step-but-step YouTube tutorial or my GitHub repository.</h1>
+<h3 id="inception">Inception</h3>
+<p>This project started after I first began using a Muse EEG headband. The headset was designed for tracking sleep quality, but when used with third-party apps, I could use it to acquire raw EEG data in real time. Doing so, I saw my own brain waves being captured, and I became curious to learn more. 
+My first EEG work was focused on analyzing biomarkers in the eyes-closed and eyes-open state, and through this I found that the brain exhibits increased delta wave activity as we relax and close our eyes. This was my first step towards understanding EEG, but I still had yet to apply this technology towards something fascinating. 
+That’s when I came across the Neuralink 2025 Summer update. Whitenessing how brain chips are now being integrated with robotic arms to help disabled people draw, I had an idea of what I could integrate EEG with—robotics! Thus originated this project, a system which relies solely on EEG input to control the stop and go motor commands of an m-Bot.</p>
+<h3 id="mission-statement">Mission Statement:</h3>
+<p>As I worked on this project, my goal became to create a simplified BCI(Brain Computer Interface) with basic EEG equipment. Pivoting from the $300+ commercial EEG headband to a more DIY setup, I wanted to create a system that could make EEG and BCI related projects more affordable and accessible. 
+This project is geared towards students, so that we can bridge the gap between neuroscience and robotics through easy to follow, exciting projects. Ultimately, through this project, I hope more students can gain exposure and develop an interest for BCI and the future of technology!</p>
+<p>If you have any questions or ideas on this project, feel free to reach out. I would love to connect!</p>
 
 
 
