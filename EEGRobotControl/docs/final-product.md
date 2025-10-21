@@ -1,7 +1,7 @@
 # The Final Product
 
 
-<iframe width="560" height="315" 
+<iframe width="800" height="500" 
     src="https://www.youtube.com/embed/nLpGi665vC0" 
     title="The Final Product - Controlling a Robot with Your Eyes!" 
     frameborder="0" 
