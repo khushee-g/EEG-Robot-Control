@@ -1,9 +1,14 @@
 # Software Setup
 
 
-## `serial-read-theta.py` – EEG Signal Processing
+## `serial-read-alpha.py` – EEG Signal Processing
 
-This program reads real-time EEG data from the Arduino/EXG setup, filters for theta band activity (4–8 Hz), and writes motor commands (`go` / `stop`) to a file for the robot to read. ⚠️ Important:** Change the `serial_port` variable to match your Arduino’s port on your computer.
+This program reads real-time EEG data from the Arduino/EXG setup, filters for alpha band activity (8-12 Hz), and then detects whether a user's eyes are open or closed based on the amplitude of the detected alpha waves. It then writes motor commands (`go` / `stop`) to a file for the robot to read.
+
+Calibration steps:
+
+- Change the `serial_port` variable to match your Arduino’s port on your computer.
+- Adjusted the AMPLITUDE_THRESHOLD_LOW and AMPLITUDE_THRESHOLD_HIGH against your own brain. To do so, observe how the alpha waves fluctuate when you open/close your eyes, and set the high and low thresholds accordingly. 
 
 ### Full Code
 
@@ -126,7 +131,10 @@ This program reads real-time EEG data from the Arduino/EXG setup, filters for th
 
 ## `mbot-motor-control.py` – Robot Control
 This program reads the motor_command.txt file and sends corresponding motor commands to the mBot via serial.
-⚠️ Important: Update serial_port to match your mBot’s connection.
+
+Calibration Steps:
+
+- Update serial_port to match your mBot’s connection.
 
 ### Full Code
     import serial
@@ -208,3 +216,13 @@ This program reads the motor_command.txt file and sends corresponding motor comm
         stop_motors()
         mbot.close()
 
+
+
+## Software Demonstration
+
+<iframe width="800" height="450" 
+    src="https://www.youtube.com/embed/TuxQBfHtZ1s?autoplay=1&mute=1" 
+    title="Software Demonstration" frameborder="0" 
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+    allowfullscreen>
+</iframe>

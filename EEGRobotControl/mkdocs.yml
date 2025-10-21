@@ -14,9 +14,6 @@ markdown_extensions:
 
 nav:
   - Home: index.md
+  - Getting Started: getting-started.md
   - Hardware Setup: hardware.md
   - Software Setup: software.md
-  - Usage:
-      - EEG Integration: eeg.md
-      - mBot Control: mbot.md
-  - Contributing: contributing.md
