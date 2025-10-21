@@ -2,7 +2,7 @@ import serial
 import time
 
 
-serial_port = "/dev/tty.usbserial-142220"  # Note: Change this to your port
+serial_port = "/dev/tty.usbserial-14230"  # Change this to your port
 baudrate = 115200
 
 try:
@@ -40,8 +40,8 @@ def run_motor(port, speed):
     print(f"Sent to port {hex(port)}: {list(packet)} (speed {speed})")
 
 def move_forward():
-    run_motor(0x09, -100)  
-    run_motor(0x0A, 100)  
+    run_motor(0x09, 100)  
+    run_motor(0x0A, -100)  
 
 def stop_motors():
     run_motor(0x09, 0)  
@@ -68,10 +68,10 @@ try:
             elif command == "stop":
                 stop_motors()
                 print("🛑 STOP → Motors stopped")
+                time.sleep(1)
             last_command = command
-
-        time.sleep(0.1)  
-
+             
+        time.sleep(0.1)
 except KeyboardInterrupt:
     print("\nProgram interrupted! Stopping motors...")
     stop_motors()

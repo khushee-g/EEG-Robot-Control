@@ -1,17 +1,20 @@
-# Welcome to MkDocs
+### Hello! 
+Welcome to the EEG Robot Control webpage. Here, I’ll cover how to control a M-Bot with EEG(electroencephalography) signals from start to finish. If you would like to follow along, check out the step-but-step YouTube tutorial or my GitHub repository.
 
-For full documentation visit [mkdocs.org](https://www.mkdocs.org).
 
-## Commands
+### Inception 
+This project started after I first began using a Muse EEG headband. The headset was designed for tracking sleep quality, but when used with third-party apps, I could use it to acquire raw EEG data in real time. Doing so, I saw my own brain waves being captured, and I became curious to learn more. 
 
-* `mkdocs new [dir-name]` - Create a new project.
-* `mkdocs serve` - Start the live-reloading docs server.
-* `mkdocs build` - Build the documentation site.
-* `mkdocs -h` - Print help message and exit.
+My first EEG work was focused on analyzing biomarkers in the eyes-closed and eyes-open state, and through this I found that the brain exhibits increased delta wave activity as we relax and close our eyes. This was my first step towards understanding EEG, but I still had yet to apply this technology towards something fascinating. 
 
-## Project layout
+That’s when I came across the Neuralink 2025 Summer Update. Whitenessing how brain chips are now being integrated with robotic arms to help disabled people draw, I had an idea of what I could integrate EEG with—robotics! Thus originated this project, a system which relies solely on EEG input to control the stop and go motor commands of an m-Bot.
 
-    mkdocs.yml    # The configuration file.
-    docs/
-        index.md  # The documentation homepage.
-        ...       # Other markdown pages, images and other files.
+
+### Mission Statement
+As I worked on this project, my goal became to create a simplified BCI(Brain Computer Interface) with basic EEG equipment. Pivoting from the $300+ commercial EEG headband to a more DIY setup, I wanted to create a system that could make EEG and BCI related projects more affordable and accessible. 
+
+This project is geared towards students, so that we can bridge the gap between neuroscience and robotics through easy to follow, exciting projects. Ultimately, through this project, I hope more students can gain exposure and develop an interest for BCI and the future of technology!
+
+
+If you have any questions or ideas on this project, feel free to reach out. I would love to connect!
+
