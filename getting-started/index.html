@@ -9,6 +9,10 @@
       
       
       
+        <link rel="prev" href="..">
+      
+      
+        <link rel="next" href="../hardware/">
       
       
       <link rel="icon" href="../assets/images/favicon.png">
@@ -16,7 +20,7 @@
     
     
       
-        <title>EEG-Robot-Control - EEG Robot Control</title>
+        <title>Getting Started - EEG Robot Control</title>
       
     
     
@@ -94,7 +98,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              EEG-Robot-Control
+              Getting Started
             
           </span>
         </div>
@@ -211,6 +215,88 @@
       
   
   
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    Getting Started
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    Getting Started
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#how-it-works" class="md-nav__link">
+    <span class="md-ellipsis">
+      How It Works
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#getting-started" class="md-nav__link">
+    <span class="md-ellipsis">
+      Getting Started
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
   
   
     <li class="md-nav__item">
@@ -251,126 +337,6 @@
   
 
     
-      
-      
-  
-  
-  
-  
-    
-    
-    
-    
-      
-        
-        
-      
-    
-    
-    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
-      
-        
-        
-          
-        
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4" >
-        
-          
-          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
-            
-  
-  
-  <span class="md-ellipsis">
-    Usage
-    
-  </span>
-  
-
-            <span class="md-nav__icon md-icon"></span>
-          </label>
-        
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_4">
-            <span class="md-nav__icon md-icon"></span>
-            Usage
-          </label>
-          <ul class="md-nav__list" data-md-scrollfix>
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../eeg.md" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    EEG Integration
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../mbot.md" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    mBot Control
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-          </ul>
-        </nav>
-      
-    </li>
-  
-
-    
-      
-      
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../contributing.md" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    Contributing
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-    
   </ul>
 </nav>
                   </div>
@@ -388,51 +354,47 @@
 
 
 <h1 id="eeg-robot-control">EEG-Robot-Control</h1>
-<p><strong>EEG-Robot Control</strong> is a project that uses real-time EEG signals to control a robot based on the user's state of alertness.</p>
-<hr />
-<h2 id="how-it-works">How It Works</h2>
-<h3 id="user-states">User States</h3>
+<p>This project uses real-time EEG signals to control a robot based on the user's state of alertness.</p>
 <ul>
 <li><strong>Alert (eyes open)</strong> → Robot moves forward  </li>
-<li><strong>Rest (eyes closed / theta detected)</strong> → Robot stops  </li>
+<li><strong>Rest (eyes closed)</strong> → Robot stops  </li>
 </ul>
-<p>By filtering EEG data in the <strong>4–8 Hz (theta) band</strong>, the system distinguishes between alert and resting states and translates them into motor commands for the robot.</p>
+<p>During the eyes-closed, resting state, EEG exhibits stable, large amplitude alpha waves. Contrastingly, in the eyes-open, active state, low amplitude alpha waves are detected. By analyzing wave amplitude in the <strong>8–12 Hz (alpha) band</strong>, the system distinguishes between alert and resting states and translates them into motor commands for the robot.</p>
 <hr />
-<h3 id="eeg-signal-acquisition">EEG Signal Acquisition</h3>
+<h2 id="how-it-works">How It Works</h2>
+<p><strong>EEG Signal Acquisition</strong>  </p>
 <ul>
-<li>3 gel electrodes (stick-on)  </li>
-<li>EXG Pill amplifier  </li>
-<li>Arduino Uno for data capture  </li>
+<li>Raw EEG Data is collected via stick on EEG-Electrodes</li>
+<li>The BioAmp EXG Pill eliminates noise and amplifies the EEG signal by 1000x</li>
+<li>The Arduino Uno captures the amplifed EEG signal and relays it to the <code>serial-read-alpha.py</code> script</li>
 </ul>
-<hr />
-<h3 id="signal-processing">Signal Processing</h3>
+<p><strong>Signal Processing</strong>  </p>
 <ul>
-<li><code>serial-read-theta.py</code> filters EEG for 4–8 Hz activity  </li>
-<li>If <strong>theta detected</strong>, writes <code>stop</code> to a motor command file  </li>
-<li>Else, writes <code>go</code>  </li>
+<li><code>serial-read-alpha.py</code> filters EEG for alpha activity  </li>
+<li>Root Mean Square(RMS) calculations are applied to detemine the aplitude of the alpha waves </li>
+<li>The amplitude is comapred to high and low thresholds. If the amplitude meets or exceeds these, the eyes closed state is detected. Else, the eyes open state is detected. </li>
+<li>If the eyes-closed state si detected, the script writes <code>stop</code> to a motor command file. Else, it writes <code>go</code> . </li>
 </ul>
-<hr />
-<h3 id="robot-control">Robot Control</h3>
+<p><strong>Robot Control</strong> </p>
 <ul>
-<li><code>mbot-motor-control.py</code> reads the command file  </li>
-<li>Sends the appropriate motor commands to the robot (<strong>mBot</strong>) via serial  </li>
+<li><code>mbot-motor-control.py</code> configures the motors and defines the <code>stop_motors</code> and <code>move_forward</code> functions </li>
+<li>The script reads the motor command file and sends the appropriate motor commands to the robot (mBot) via serial  </li>
 </ul>
-<hr />
-<h2 id="requirements">Requirements</h2>
+<p><strong>System Requirements</strong></p>
 <ul>
 <li>Python 3.x  </li>
 <li>NumPy, SciPy  </li>
-<li>Arduino Uno + EXG Pill  </li>
-<li>mBot (MakerBlock)  </li>
-<li>EEG electrodes (3 gel stick-on)  </li>
+<li>See Hardware section for complete materials list</li>
 </ul>
 <hr />
 <h2 id="getting-started">Getting Started</h2>
 <ol>
-<li>Run <code>serial-read-theta.py</code> to begin capturing EEG and writing commands.  </li>
+<li>Setup the EEG system and build the M-Bot. </li>
+<li>Follow the electronics schematics or tutorial video to setup the complete system. </li>
+<li>Run <code>serial-read-alpha.py</code> to begin capturing EEG and writing <code>stop</code>/<code>go</code>commands.  </li>
 <li>In a separate terminal, run <code>mbot-motor-control.py</code> to control robot motors.  </li>
-<li><strong>Close your eyes</strong> → robot stops  </li>
-<li><strong>Stay alert (eyes open)</strong> → robot moves  </li>
+<li>Close your eyes → robot <strong>stops</strong>.  </li>
+<li>Stay alert (eyes open) → robot <strong>moves</strong>.  </li>
 </ol>
 <hr />
 

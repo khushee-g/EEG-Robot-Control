@@ -216,6 +216,28 @@
   
   
     <li class="md-nav__item">
+      <a href="../getting-started/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Getting Started
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../hardware/" class="md-nav__link">
         
   
@@ -288,13 +310,13 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#serial-read-thetapy-eeg-signal-processing" class="md-nav__link">
+  <a href="#serial-read-alphapy-eeg-signal-processing" class="md-nav__link">
     <span class="md-ellipsis">
-      serial-read-theta.py – EEG Signal Processing
+      serial-read-alpha.py – EEG Signal Processing
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="serial-read-theta.py – EEG Signal Processing">
+    <nav class="md-nav" aria-label="serial-read-alpha.py – EEG Signal Processing">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -335,130 +357,19 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#software-demonstration" class="md-nav__link">
+    <span class="md-ellipsis">
+      Software Demonstration
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
       
-    </li>
-  
-
-    
-      
-      
-  
-  
-  
-  
-    
-    
-    
-    
-      
-        
-        
-      
-    
-    
-    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
-      
-        
-        
-          
-        
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4" >
-        
-          
-          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
-            
-  
-  
-  <span class="md-ellipsis">
-    Usage
-    
-  </span>
-  
-
-            <span class="md-nav__icon md-icon"></span>
-          </label>
-        
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_4">
-            <span class="md-nav__icon md-icon"></span>
-            Usage
-          </label>
-          <ul class="md-nav__list" data-md-scrollfix>
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../eeg.md" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    EEG Integration
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../mbot.md" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    mBot Control
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-          </ul>
-        </nav>
-      
-    </li>
-  
-
-    
-      
-      
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../contributing.md" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    Contributing
-    
-  </span>
-  
-
-      </a>
     </li>
   
 
@@ -480,34 +391,34 @@
 
 
 <h1 id="software-setup">Software Setup</h1>
-<h2 id="serial-read-thetapy-eeg-signal-processing"><code>serial-read-theta.py</code> – EEG Signal Processing</h2>
-<p>This program reads real-time EEG data from the Arduino/EXG setup, filters for theta band activity (4–8 Hz), and writes motor commands (<code>go</code> / <code>stop</code>) to a file for the robot to read. ⚠️ Important:** Change the <code>serial_port</code> variable to match your Arduino’s port on your computer.</p>
+<h2 id="serial-read-alphapy-eeg-signal-processing"><code>serial-read-alpha.py</code> – EEG Signal Processing</h2>
+<p>This program reads real-time EEG data from the Arduino/EXG setup, filters for alpha band activity (8-12 Hz), and then detects whether a user's eyes are open or closed based on the amplitude of the detected alpha waves. It then writes motor commands (<code>go</code> / <code>stop</code>) to a file for the robot to read.</p>
+<p>Calibration steps:</p>
+<ul>
+<li>Change the <code>serial_port</code> variable to match your Arduino’s port on your computer.</li>
+<li>Adjusted the AMPLITUDE_THRESHOLD_LOW and AMPLITUDE_THRESHOLD_HIGH against your own brain. To do so, observe how the alpha waves fluctuate when you open/close your eyes, and set the high and low thresholds accordingly. </li>
+</ul>
 <h3 id="full-code">Full Code</h3>
 <pre><code>import serial
 import time
 import numpy as np
-import csv
+import matplotlib.pyplot as plt
 from scipy.signal import butter, lfilter
-from scipy.fft import fft, fftfreq
 from collections import deque
-from datetime import datetime
 
-# Sampling settings
-sampling_rate = 256   
+sampling_rate = 256
 sampling_interval = 1.0 / sampling_rate
-window_size = 256     
-lowcut = 4.0          
-highcut = 8.0
+window_size = 2048
 
-# Serial port (update to your Arduino's port)
-serial_port = "/dev/cu.usbmodem1422401"
+lowcut = 8.0
+highcut = 12.0
+
+serial_port = "/dev/cu.usbmodem142401"  # Change to your port
 baudrate = 115200
 timeout = 1
 
-# CSV file to log data
-csv_file = open("eeg_buzz_log.csv", "w", newline="")
-csv_writer = csv.writer(csv_file)
-csv_writer.writerow(["Timestamp", "EEG Value", "Dominant Frequency", "Command"])
+AMPLITUDE_THRESHOLD_LOW = 8.4  # adjust to calibrate against your own brain
+AMPLITUDE_THRESHOLD_HIGH = 8.7
 
 def butter_bandpass(lowcut, highcut, fs, order=4):
     nyq = 0.5 * fs
@@ -527,22 +438,32 @@ except Exception as e:
     exit(1)
 
 data_buffer = deque(maxlen=window_size)
+last_command_time = time.time()
 
-# Clear motor command file
-with open("motor_command.txt", "w") as f:
-    f.write("")
+plt.ion()
+fig, ax = plt.subplots()
+x_vals = []
+y_vals = []
+line, = ax.plot([], [], lw=2)
+ax.set_xlim(0, 60)
+ax.set_ylim(8, 9)
+ax.set_xlabel("Time (s)")
+ax.set_ylabel("Alpha Amplitude (RMS)")
+ax.set_title("Real-Time Alpha Oscillation Amplitude")
+fig.tight_layout()
+
+start_plot_time = time.time()
+
+
 
 try:
     while True:
-        start_time = time.time()
-
-        line = ser.readline().decode("utf-8", errors="replace").strip()
-        if not line:
+        line_data = ser.readline().decode("utf-8", errors="replace").strip()
+        if not line_data:
             continue
 
         try:
-            parts = line.split(',')
-            eeg_value = float(parts[0])
+            eeg_value = float(line_data.split(',')[0])
         except (ValueError, IndexError):
             continue
 
@@ -552,50 +473,58 @@ try:
             raw_data = np.array(data_buffer)
             filtered = apply_filter(raw_data, lowcut, highcut, sampling_rate)
 
-            yf = np.abs(fft(filtered))
-            freqs = fftfreq(window_size, d=sampling_interval)
+            # Use RMS as amplitude measure
+            alpha_amplitude = np.sqrt(np.mean(filtered**2))
 
-            yf = yf[:window_size // 2]
-            freqs = freqs[:window_size // 2]
-
-            dominant_freq = freqs[np.argmax(yf)]
-
-            if 4 &lt;= dominant_freq &lt;= 8:
+            # Determine command
+            if alpha_amplitude &lt; AMPLITUDE_THRESHOLD_LOW or alpha_amplitude &gt; AMPLITUDE_THRESHOLD_HIGH:
                 command = "stop"
-                print(f"🛑 STOP | Dominant freq: {dominant_freq:.2f} Hz")
+                print(f"🛑 STOP | Alpha amplitude: {alpha_amplitude:.1f}")
             else:
                 command = "go"
-                print(f"✅ GO | Dominant freq: {dominant_freq:.2f} Hz")
+                print(f"✅ GO | Alpha amplitude: {alpha_amplitude:.1f}")
 
             with open("motor_command.txt", "w") as f:
                 f.write(command)
 
-            timestamp = datetime.now().isoformat()
-            csv_writer.writerow([timestamp, eeg_value, f"{dominant_freq:.2f}", command])
-            csv_file.flush()
 
-        elapsed = time.time() - start_time
-        time.sleep(max(0, sampling_interval - elapsed))
+
+            current_time = time.time() - start_plot_time
+            x_vals.append(current_time)
+            y_vals.append(alpha_amplitude)
+
+            if x_vals[-1] &gt; 60:
+                x_vals = [t for t in x_vals if t &gt;= x_vals[-1] - 60]
+                y_vals = y_vals[-len(x_vals):]
+                ax.set_xlim(x_vals[0], x_vals[-1])
+
+            line.set_data(x_vals, y_vals)
+
+
+            plt.pause(0.001)
+
+        time.sleep(sampling_interval)
 
 except KeyboardInterrupt:
     print("Program stopped by user.")
 
 finally:
-    csv_file.close()
-    if ser.is_open:
-        ser.close()
-    print("Serial port and file closed.")
+    ser.close()
+    print("Serial port closed.")
 </code></pre>
 <hr />
 <h2 id="mbot-motor-controlpy-robot-control"><code>mbot-motor-control.py</code> – Robot Control</h2>
-<p>This program reads the motor_command.txt file and sends corresponding motor commands to the mBot via serial.
-⚠️ Important: Update serial_port to match your mBot’s connection.</p>
+<p>This program reads the motor_command.txt file and sends corresponding motor commands to the mBot via serial.</p>
+<p>Calibration Steps:</p>
+<ul>
+<li>Update serial_port to match your mBot’s connection.</li>
+</ul>
 <h3 id="full-code_1">Full Code</h3>
 <pre><code>import serial
 import time
 
-# Serial port to connect to mBot (update this!)
-serial_port = "/dev/tty.usbserial-142220"
+
+serial_port = "/dev/tty.usbserial-14230"  # Change this to your port
 baudrate = 115200
 
 try:
@@ -604,6 +533,8 @@ try:
 except Exception as e:
     print(f"Error opening serial port: {e}")
     exit(1)
+
+
 
 def run_motor(port, speed):
     """
@@ -631,12 +562,16 @@ def run_motor(port, speed):
     print(f"Sent to port {hex(port)}: {list(packet)} (speed {speed})")
 
 def move_forward():
-    run_motor(0x09, -100)  
-    run_motor(0x0A, 100)
+    run_motor(0x09, 100)  
+    run_motor(0x0A, -100)
 
 def stop_motors():
     run_motor(0x09, 0)  
     run_motor(0x0A, 0)
+
+
+
+
 
 last_command = None
 
@@ -655,15 +590,22 @@ try:
             elif command == "stop":
                 stop_motors()
                 print("🛑 STOP → Motors stopped")
+                time.sleep(1)
             last_command = command
 
         time.sleep(0.1)
-
 except KeyboardInterrupt:
     print("\nProgram interrupted! Stopping motors...")
     stop_motors()
     mbot.close()
 </code></pre>
+<h2 id="software-demonstration">Software Demonstration</h2>
+<iframe width="800" height="450" 
+    src="https://www.youtube.com/embed/TuxQBfHtZ1s?autoplay=1&mute=1" 
+    title="Software Demonstration" frameborder="0" 
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+    allowfullscreen>
+</iframe>
 
 
 

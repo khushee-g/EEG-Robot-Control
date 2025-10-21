@@ -9,7 +9,7 @@
       
       
       
-        <link rel="prev" href="..">
+        <link rel="prev" href="../getting-started/">
       
       
         <link rel="next" href="../software/">
@@ -215,6 +215,28 @@
       
   
   
+  
+  
+    <li class="md-nav__item">
+      <a href="../getting-started/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Getting Started
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
     
   
   
@@ -277,9 +299,18 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#electronics-setup" class="md-nav__link">
+  <a href="#electronics-schematics" class="md-nav__link">
     <span class="md-ellipsis">
-      Electronics Setup
+      Electronics Schematics
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hardware-setup-demonstration" class="md-nav__link">
+    <span class="md-ellipsis">
+      Hardware Setup Demonstration
     </span>
   </a>
   
@@ -306,126 +337,6 @@
   
   <span class="md-ellipsis">
     Software Setup
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-    
-      
-      
-  
-  
-  
-  
-    
-    
-    
-    
-      
-        
-        
-      
-    
-    
-    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
-      
-        
-        
-          
-        
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4" >
-        
-          
-          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
-            
-  
-  
-  <span class="md-ellipsis">
-    Usage
-    
-  </span>
-  
-
-            <span class="md-nav__icon md-icon"></span>
-          </label>
-        
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_4">
-            <span class="md-nav__icon md-icon"></span>
-            Usage
-          </label>
-          <ul class="md-nav__list" data-md-scrollfix>
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../eeg.md" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    EEG Integration
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../mbot.md" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    mBot Control
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-          </ul>
-        </nav>
-      
-    </li>
-  
-
-    
-      
-      
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../contributing.md" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    Contributing
     
   </span>
   
@@ -462,15 +373,32 @@
 <li>2 USB Type-B Cables</li>
 </ul>
 <hr />
-<h3 id="electronics-setup">Electronics Setup</h3>
+<h3 id="electronics-schematics">Electronics Schematics</h3>
 <p>To set up the EEG system, start by connecting the electrodes to the snap-fit cables, and connect the free ends to the BioAmp EXG Pill. I used red, black, and yellow cables to represent IN+, IN-, and REF respectively.  </p>
 <p>Next, connect the BioAmp EXG Pill to the Arduino Uno board using the male-female jumper wires. Connect the yellow wire from the output pin to the A0 Analog Input port on the Arduino; connect the black wire from the ground pin to the ground port on the Arduino; and connect the red wire from the VCC (power) pin to the 5V port.  </p>
 <p>Here is the complete connection setup:</p>
-<p><img align="center" alt="Complete Connection Setup" src="../EEG-Hardware.png" width="800" /></p>
-<hr />
+<p><img alt="Complete Connection Setup" src="../EEG-Hardware.png" /></p>
 <p>Now connect the USB cable from the Arduino board to your computer, so that the EEG signal can be processed.  </p>
 <p>Connect the second USB cable from your computer to the M-Bot, in order to send the robot real-time motor commands based on the EEG input. Alternatively, you can connect to the M-Bot via Bluetooth.</p>
-<p><img align="center" alt="Hardware Setup" src="../hardware-setup.png" width="800" /></p>
+<p><img alt="Hardware Setup" src="../hardware-setup.png" /></p>
+<hr />
+<h3 id="hardware-setup-demonstration">Hardware Setup Demonstration</h3>
+<p>EEG Setup Demo</p>
+<iframe width="800" height="450" 
+    src="https://www.youtube.com/embed/GpGCMGngrpo?autoplay=1&mute=1" 
+    title="EEG Setup Demo" frameborder="0" 
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+    allowfullscreen>
+</iframe>
+
+<p><br>
+M-Bot Build Demo</p>
+<iframe width="800" height="450" 
+    src="https://www.youtube.com/embed/5uiRYBVInLg?autoplay=1&mute=1" 
+    title="M-Bot Build Demo" frameborder="0" 
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+    allowfullscreen>
+</iframe>
 
 
 
