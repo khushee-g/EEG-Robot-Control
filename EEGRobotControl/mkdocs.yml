@@ -1,4 +1,5 @@
 site_name: EEG Robot Control
+
 theme:
   name: material
   features:
@@ -11,7 +12,6 @@ theme:
 markdown_extensions:
   - attr_list
 
-site_name: '<img src="/Users/khushee/Documents/Arduino/serialReadRobot/EEG-Robot-Control/EEGRobotControl/docs/banner.png" alt="EEG Robot Control" height="50">'
 nav:
   - Home: index.md
   - Getting Started: getting-started.md
