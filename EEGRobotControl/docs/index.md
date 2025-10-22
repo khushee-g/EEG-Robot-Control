@@ -1,4 +1,5 @@
-(EEG-Hardware.png)
+<img src="banner.png" alt="EEG Robot Control Banner" width="100%">
+
 
 Welcome to the EEG Robot Control webpage. Here, I’ll cover how to control a M-Bot with EEG(electroencephalography) signals from start to finish. If you would like to follow along, check out the step-but-step YouTube tutorial or my GitHub repository.
 
