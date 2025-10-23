@@ -1,0 +1,5 @@
+[data-md-page="index"] .md-content__inner h1:first-of-type {
+    display: none;
+    margin: 0;
+    padding: 0;
+  }

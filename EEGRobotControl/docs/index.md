@@ -18,10 +18,8 @@ That’s when I came across the Neuralink 2025 Summer Update. Whitenessing how b
 
 
 ### Mission Statement
-As I worked on this project, my goal became to create a simplified BCI(Brain Computer Interface) with basic EEG equipment. Pivoting from the $300+ commercial EEG headband to a more DIY setup, I wanted to create a system that could make EEG and BCI related projects more affordable and accessible. 
-
-This project is geared towards students, so that we can bridge the gap between neuroscience and robotics through easy to follow, exciting projects. Ultimately, through this project, I hope more students can gain exposure and develop an interest for BCI and the future of technology!
+As I worked on this project, my goal became to create a simplified BCI(Brain Computer Interface) with basic EEG equipment, so that more students can gain hands-on experience in this domain. Pivoting from the $300+ commercial EEG headband to this DIY setup which costs less than $50, I hope to make EEG and BCI related projects more affordable and accessible. 
 
 
-If you have any questions or ideas on this project, feel free to reach out. I would love to connect!
+If you have any questions or ideas on this project, feel free to reach out at goelkhushee@gmail.com. I would love to connect!
 
