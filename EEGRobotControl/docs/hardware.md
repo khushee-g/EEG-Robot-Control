@@ -19,9 +19,7 @@ Next, connect the BioAmp EXG Pill to the Arduino Uno board using the male-female
 Here is the complete connection setup:
 
 
-<div style="text-align: center;">
-  <img src="EEG-Hardware.png" alt="Complete Connection Setup">
-</div>
+![Complete Connection Setup](EEG-Hardware.png)
 
 
 
@@ -31,10 +29,7 @@ Now connect the USB cable from the Arduino board to your computer, so that the E
 Connect the second USB cable from your computer to the M-Bot, in order to send the robot real-time motor commands based on the EEG input. Alternatively, you can connect to the M-Bot via Bluetooth.
 
 
-<div style="text-align: center;">
-  <video src="hardware-setup.mp4" controls width="70%"></video>
-</div>
-
+![Hardware Setup](hardware-setup.png)
 
 ---
 ### Hardware Setup Demonstration
@@ -56,7 +51,7 @@ Connect the second USB cable from your computer to the M-Bot, in order to send t
 <br>
 <div align="center">
     M-Bot Build Demo
-</div>
+<div align="center">
 
 
 <div align="center">
