@@ -19,6 +19,7 @@ nav:
   - Hardware Setup: hardware.md
   - Software Setup: software.md
   - The Final Product: final-product.md
+  - About: About.md
 
 extra_css:
   - stylesheets/extra.css
