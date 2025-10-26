@@ -18,7 +18,9 @@ Next, connect the BioAmp EXG Pill to the Arduino Uno board using the male-female
 
 Here is the complete connection setup:
 
-![Complete Connection Setup](EEG-Hardware.png)
+<div align="center">
+    ![Complete Connection Setup](EEG-Hardware.png)
+</div>
 
 
 
@@ -26,29 +28,34 @@ Now connect the USB cable from the Arduino board to your computer, so that the E
 
 Connect the second USB cable from your computer to the M-Bot, in order to send the robot real-time motor commands based on the EEG input. Alternatively, you can connect to the M-Bot via Bluetooth.
 
-![Hardware Setup](hardware-setup.png)
-
+<div align="center">
+    ![Hardware Setup](hardware-setup.png)
+</div>
 ---
 ### Hardware Setup Demonstration
 
 
 EEG Setup Demo
 
-<iframe width="800" height="450" 
-    src="https://www.youtube.com/embed/GpGCMGngrpo?autoplay=1&mute=1" 
-    title="EEG Setup Demo" frameborder="0" 
-    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-    allowfullscreen>
-</iframe>
+<div align="center">
+    <iframe width="800" height="450" 
+        src="https://www.youtube.com/embed/GpGCMGngrpo?autoplay=1&mute=1" 
+        title="EEG Setup Demo" frameborder="0" 
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+        allowfullscreen>
+    </iframe>
+</div>
 
 <br>
 M-Bot Build Demo
 
 
-<iframe width="800" height="450" 
-    src="https://www.youtube.com/embed/5uiRYBVInLg?autoplay=1&mute=1" 
-    title="M-Bot Build Demo" frameborder="0" 
-    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-    allowfullscreen>
-</iframe>
+<div align="center">
+    <iframe width="800" height="450" 
+        src="https://www.youtube.com/embed/5uiRYBVInLg?autoplay=1&mute=1" 
+        title="M-Bot Build Demo" frameborder="0" 
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+        allowfullscreen>
+    </iframe>
+</div>
 
