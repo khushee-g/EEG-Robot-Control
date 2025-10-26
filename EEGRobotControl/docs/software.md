@@ -92,10 +92,10 @@ Calibration steps:
                 # Determine command
                 if alpha_amplitude < AMPLITUDE_THRESHOLD_LOW or alpha_amplitude > AMPLITUDE_THRESHOLD_HIGH:
                     command = "stop"
-                    print(f"🛑 STOP | Alpha amplitude: {alpha_amplitude:.1f}")
+                    print(f"STOP -- Alpha amplitude: {alpha_amplitude:.1f}")
                 else:
                     command = "go"
-                    print(f"✅ GO | Alpha amplitude: {alpha_amplitude:.1f}")
+                    print(f"GO -- Alpha amplitude: {alpha_amplitude:.1f}")
 
                 with open("motor_command.txt", "w") as f:
                     f.write(command)
@@ -203,10 +203,10 @@ Calibration Steps:
             if command in ["go", "stop"]:
                 if command == "go":
                     move_forward()
-                    print("✅ GO → Moving forward")
+                    print("GO")
                 elif command == "stop":
                     stop_motors()
-                    print("🛑 STOP → Motors stopped")
+                    print("STOP")
                     time.sleep(1)
                 last_command = command
                 

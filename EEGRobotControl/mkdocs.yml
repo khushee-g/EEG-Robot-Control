@@ -5,6 +5,7 @@ theme:
   features:
     - navigation.instant
     - navigation.sections
+    - navigation.footer
     - navigation.expand
     - toc.integrate
 
@@ -17,4 +18,4 @@ nav:
   - Getting Started: getting-started.md
   - Hardware Setup: hardware.md
   - Software Setup: software.md
-  - The Final Prodcut: final-product.md
+  - The Final Product: final-product.md
