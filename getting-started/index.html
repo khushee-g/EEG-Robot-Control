@@ -410,16 +410,16 @@
 <h2 id="how-it-works">How It Works</h2>
 <p><strong>EEG Signal Acquisition</strong>  </p>
 <ul>
-<li>Raw EEG Data is collected via stick on EEG-Electrodes</li>
+<li>Raw EEG Data is collected via stick-on EEG electrodes</li>
 <li>The BioAmp EXG Pill eliminates noise and amplifies the EEG signal by 1000x</li>
 <li>The Arduino Uno captures the amplifed EEG signal and relays it to the <code>serial-read-alpha.py</code> script</li>
 </ul>
 <p><strong>Signal Processing</strong>  </p>
 <ul>
 <li><code>serial-read-alpha.py</code> filters EEG for alpha activity  </li>
-<li>Root Mean Square(RMS) calculations are applied to detemine the aplitude of the alpha waves </li>
+<li>Root Mean Square(RMS) calculations are applied to detemine the amplitude of the alpha waves </li>
 <li>The amplitude is comapred to high and low thresholds. If the amplitude meets or exceeds these, the eyes closed state is detected. Else, the eyes open state is detected. </li>
-<li>If the eyes-closed state si detected, the script writes <code>stop</code> to a motor command file. Else, it writes <code>go</code> . </li>
+<li>If the eyes-closed state is detected, the script writes <code>stop</code> to a motor command file. Else, it writes <code>go</code> . </li>
 </ul>
 <p><strong>Robot Control</strong> </p>
 <ul>
@@ -435,7 +435,7 @@
 <hr />
 <h2 id="getting-started">Getting Started</h2>
 <ol>
-<li>Setup the EEG system and build the M-Bot. </li>
+<li>Setup the EEG system and build the mBot. </li>
 <li>Follow the electronics schematics or tutorial video to setup the complete system. </li>
 <li>Run <code>serial-read-alpha.py</code> to begin capturing EEG and writing <code>stop</code>/<code>go</code>commands.  </li>
 <li>In a separate terminal, run <code>mbot-motor-control.py</code> to control robot motors.  </li>
