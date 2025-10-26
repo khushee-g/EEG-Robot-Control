@@ -3,3 +3,31 @@
     margin: 0;
     padding: 0;
   }
+
+/* Force sidebar to stay visible on all screen sizes */
+@media screen and (max-width: 1220px) {
+  .md-sidebar {
+    display: block !important;
+    position: fixed !important;
+    transform: none !important;
+    visibility: visible !important;
+  }
+
+  .md-overlay {
+    display: none !important;
+  }
+
+  .md-main__inner {
+    margin-left: 20rem !important; /* adjust depending on sidebar width */
+  }
+
+  .md-header {
+    position: fixed;
+    width: 100%;
+    z-index: 2000;
+  }
+
+  .md-content {
+    padding-top: 3.5rem;
+  }
+}
